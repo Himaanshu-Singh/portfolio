@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 
 const links = [
   { label: "Work", href: "#projects" },
@@ -47,6 +47,14 @@ export default function Navbar() {
                 {l.label}
               </a>
             ))}
+            <a
+              href="/resume.pdf"
+              download="Himanshu_Singh_Resume.pdf"
+              className="text-[13px] px-4 py-1.5 rounded-full border border-primary/40 text-primary hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-1.5"
+            >
+              <Download size={12} />
+              Resume
+            </a>
             <a href="#contact" className="text-[13px] px-4 py-1.5 rounded-full border border-surface-border text-text-muted hover:text-text hover:border-primary/30 transition-all">
               Let&apos;s talk
             </a>
@@ -80,6 +88,18 @@ export default function Navbar() {
                 {l.label}
               </motion.a>
             ))}
+            <motion.a
+              href="/resume.pdf"
+              download="Himanshu_Singh_Resume.pdf"
+              onClick={() => setOpen(false)}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: links.length * 0.05 }}
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-primary/40 text-primary text-base font-medium hover:bg-primary hover:text-white transition-all duration-300 mt-2"
+            >
+              <Download size={15} />
+              Download Resume
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>
